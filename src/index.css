@@ -1,0 +1,135 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+:root {
+  --taupe: #AD8B73;
+  --mocha: #CEAB93;
+  --sand: #E3CAA5;
+  --cream: #FFFBE9;
+  --ink: #49372D;
+  --muted: #766356;
+  --white: #FFFFFF;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button, input, textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: min(1180px, 90%);
+  margin-inline: auto;
+}
+
+.section-padding {
+  padding: 90px 0;
+}
+
+.eyebrow {
+  color: var(--taupe);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.15;
+  font-weight: 500;
+}
+
+.primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 23px;
+  border: 1px solid var(--taupe);
+  background: var(--taupe);
+  color: var(--white);
+  transition: 0.3s ease;
+}
+
+.primary-btn:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  transform: translateY(-2px);
+}
+
+.outline-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 23px;
+  border: 1px solid var(--taupe);
+  color: var(--ink);
+  transition: 0.3s ease;
+}
+
+.outline-btn:hover {
+  background: var(--sand);
+}
+
+::selection {
+  background: var(--mocha);
+  color: var(--ink);
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 60px 0;
+  }
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.placeholder-page {
+  flex: 1;
+  min-height: 55vh;
+}
+
+.placeholder-page .section-title {
+  margin-top: 18px;
+}
+
+.placeholder-description {
+  max-width: 600px;
+  margin: 20px 0 28px;
+  color: var(--muted);
+  line-height: 1.8;
+}

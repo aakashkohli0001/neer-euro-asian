@@ -1,0 +1,409 @@
+.nea-header {
+  --nav-dark: #49372d;
+  --nav-primary: #ad8b73;
+  --nav-secondary: #ceab93;
+  --nav-cream: #fffbe9;
+  --nav-border: rgba(73, 55, 45, 0.12);
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: rgba(255, 251, 233, 0.94);
+  border-bottom: 1px solid var(--nav-border);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.nea-header:hover {
+  background: rgba(255, 251, 233, 0.98);
+  box-shadow: 0 8px 30px rgba(73, 55, 45, 0.055);
+}
+
+.nea-nav-inner {
+  width: min(1280px, 92%);
+  min-height: 88px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+/* ==========================================
+   BRAND / LOGO
+========================================== */
+
+.nea-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  flex-shrink: 0;
+  color: var(--nav-dark);
+  text-decoration: none;
+}
+
+.nea-brand-mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid var(--nav-primary);
+  background: var(--nav-dark);
+  color: var(--nav-cream);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 31px;
+  font-style: italic;
+  line-height: 1;
+  transition:
+    background 0.35s ease,
+    color 0.35s ease,
+    transform 0.35s ease,
+    border-radius 0.35s ease;
+}
+
+.nea-brand-mark::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 0.55s ease;
+}
+
+.nea-brand:hover .nea-brand-mark {
+  transform: rotate(-5deg);
+  border-radius: 50%;
+  background: var(--nav-primary);
+  color: white;
+}
+
+.nea-brand:hover .nea-brand-mark::after {
+  left: 150%;
+}
+
+.nea-brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.nea-brand-text strong {
+  color: var(--nav-dark);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.nea-brand-text small {
+  color: var(--nav-primary);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+/* ==========================================
+   DESKTOP NAVIGATION
+========================================== */
+
+.nea-nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(18px, 2.2vw, 32px);
+}
+
+.nea-nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: #756255;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.35px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.nea-nav-link::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+  left: 0;
+  height: 2px;
+  background: var(--nav-primary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s ease;
+}
+
+.nea-nav-link:hover,
+.nea-nav-link.nea-nav-active {
+  color: var(--nav-dark);
+}
+
+.nea-nav-link:hover::after,
+.nea-nav-link.nea-nav-active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ==========================================
+   LET'S TALK CTA
+========================================== */
+
+.nea-nav-cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 45px;
+  padding: 0 19px;
+  overflow: hidden;
+  border: 1px solid var(--nav-dark);
+  background: var(--nav-dark);
+  color: var(--nav-cream);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.nea-nav-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--nav-primary);
+  transform: translateX(-101%);
+  transition: transform 0.35s ease;
+}
+
+.nea-nav-cta:hover::before {
+  transform: translateX(0);
+}
+
+.nea-nav-cta:hover {
+  transform: translateY(-2px);
+  border-color: var(--nav-primary);
+  color: white;
+  box-shadow: 0 8px 22px rgba(73, 55, 45, 0.14);
+}
+
+.nea-nav-cta svg {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.nea-nav-cta:hover svg {
+  transform: translate(3px, -3px);
+}
+
+.nea-nav-cta {
+  isolation: isolate;
+}
+
+.nea-nav-cta::before {
+  z-index: -1;
+}
+
+/* ==========================================
+   MOBILE MENU BUTTON
+========================================== */
+
+.nea-menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--nav-border);
+  border-radius: 0;
+  background: transparent;
+  color: var(--nav-dark);
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.nea-menu-toggle:hover {
+  transform: rotate(3deg);
+  border-color: var(--nav-primary);
+  background: var(--nav-dark);
+  color: white;
+}
+
+.nea-menu-toggle svg {
+  transition: transform 0.25s ease;
+}
+
+/* ==========================================
+   TABLET & MOBILE
+========================================== */
+
+@media (max-width: 950px) {
+  .nea-nav-inner {
+    width: 90%;
+    min-height: 78px;
+  }
+
+  .nea-menu-toggle {
+    display: inline-flex;
+    position: relative;
+    z-index: 1002;
+    flex-shrink: 0;
+  }
+
+  .nea-nav-links {
+    position: absolute;
+    top: calc(100% + 1px);
+    right: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    max-height: calc(100dvh - 78px);
+    padding: 12px 5% 24px;
+    overflow-y: auto;
+    border-bottom: 1px solid var(--nav-border);
+    background: var(--nav-cream);
+    box-shadow: 0 20px 35px rgba(73, 55, 45, 0.10);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-10px);
+
+    transition:
+      opacity 0.25s ease,
+      visibility 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .nea-nav-links.nea-nav-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .nea-nav-link {
+    min-height: 53px;
+    border-bottom: 1px solid rgba(73, 55, 45, 0.08);
+    font-size: 13px;
+  }
+
+  .nea-nav-link::after {
+    right: auto;
+    bottom: 0;
+    width: 35px;
+  }
+
+  .nea-nav-cta {
+    align-self: flex-start;
+    margin-top: 18px;
+    min-height: 47px;
+    padding: 0 23px;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 480px) {
+  .nea-nav-inner {
+    width: 91%;
+    min-height: 72px;
+    gap: 12px;
+  }
+
+  .nea-brand {
+    gap: 9px;
+  }
+
+  .nea-brand-mark {
+    width: 41px;
+    height: 41px;
+    font-size: 27px;
+  }
+
+  .nea-brand-text {
+    gap: 5px;
+  }
+
+  .nea-brand-text strong {
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  .nea-brand-text small {
+    font-size: 7px;
+    letter-spacing: 1.2px;
+  }
+
+  .nea-menu-toggle {
+    width: 41px;
+    height: 41px;
+  }
+
+  .nea-nav-links {
+    max-height: calc(100dvh - 72px);
+  }
+}
+
+/* ==========================================
+   ACCESSIBILITY
+========================================== */
+
+.nea-brand:focus-visible,
+.nea-nav-link:focus-visible,
+.nea-nav-cta:focus-visible,
+.nea-menu-toggle:focus-visible {
+  outline: 2px solid var(--nav-primary);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nea-header *,
+  .nea-header *::before,
+  .nea-header *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}
